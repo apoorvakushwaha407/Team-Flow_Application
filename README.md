@@ -2,6 +2,9 @@
 
 A modern, full-stack task management application built with React, Node.js, Express, and MongoDB. Designed for teams to collaborate on projects and manage tasks efficiently with role-based access control and Kanban-style task boards.
 
+Live demo: https://team-task-manager-rmcg.vercel.app/
+Backend : https://team-flowapplication-production.up.railway.app/
+
 ## 🌟 Features
 
 ### Authentication & Authorization
