@@ -187,51 +187,6 @@ npm start
 5. **Session Persistence** - Token and user data restored on page refresh
 6. **Protected Routes** - Unauthenticated users redirected to login
 
-## 👥 User Roles & Permissions
-
-### Admin
-- **Team Management**
-  - Create new teams
-  - View all team members
-  - Share invite codes with new members
-  - Manage team composition
-- **Project Management**
-  - Create new projects
-  - Delete projects
-  - Add/remove project members
-  - Assign projects to team members
-  - View all project statistics
-- **Task Management**
-  - Create tasks in any project
-  - Update task status and details
-  - Assign tasks to team members
-  - Delete any task
-- **Dashboard Access**
-  - View comprehensive team statistics
-  - See all projects and tasks
-  - Monitor team workload
-  - Access invite code management
-
-### Member
-- **Team Participation**
-  - Join teams using invite code
-  - View team members
-  - Collaborate with team
-- **Project Access**
-  - View projects they're assigned to
-  - Create tasks in assigned projects
-  - Update task status in assigned projects
-  - Cannot create or delete projects
-  - Cannot add/remove project members
-- **Task Management**
-  - Create and manage tasks in their projects
-  - Update task status
-  - See assigned tasks highlighted
-- **Dashboard Access**
-  - View their own task statistics
-  - See assigned projects only
-  - Monitor their personal workload
-  - Cannot see invite code
 
 ## 📊 Database Schema
 
@@ -258,35 +213,6 @@ npm start
   owner: ObjectId (ref: User, team creator),
   inviteCode: String (required, unique, 6-character uppercase),
   members: [ObjectId] (ref: User, array of team members),
-  createdAt: Date,
-  updatedAt: Date
-}
-```
-
-### Project
-```javascript
-{
-  _id: ObjectId,
-  name: String (required, trim),
-  description: String (optional, project details),
-  teamId: ObjectId (ref: Team, required),
-  members: [ObjectId] (ref: User, project contributors),
-  createdBy: ObjectId (ref: User, required, project creator),
-  createdAt: Date,
-  updatedAt: Date
-}
-```
-
-### Task
-```javascript
-{
-  _id: ObjectId,
-  title: String (required, task name),
-  description: String (optional, task details),
-  status: String (enum: ["todo", "in-progress", "done"], default: "todo"),
-  assignedTo: ObjectId (ref: User, required, assigned team member),
-  projectId: ObjectId (ref: Project, required),
-  dueDate: Date (optional, task deadline),
   createdAt: Date,
   updatedAt: Date
 }
@@ -378,50 +304,6 @@ npm start
 - Mobile browsers (iOS Safari, Chrome Mobile)
 
 ## 🚦 Project Status
-
-### ✅ Completed Features
-- Authentication system (register/login/logout) with JWT tokens
-- JWT token management with 7-day expiration
-- Role-based access control (Admin, Member)
-- Team management system with invite codes
-- Team setup wizard for new users
-- Complete project CRUD operations
-- Project member management (add/remove by email)
-- Task management with full CRUD operations
-- 3-Column Kanban board (To Do, In Progress, Done)
-- Task status updates and transitions
-- Task assignment to team members
-- Dashboard with comprehensive statistics
-- Project progress tracking and visualization
-- Overdue task detection and alerts
-- Team member workload overview
-- Form validation (frontend and backend)
-- Comprehensive error handling
-- Loading and empty states UI
-- Responsive design for all screen sizes
-- Material Design 3 UI with Tailwind CSS
-- User profile dropdown and logout
-- Real-time data fetching and display
-- Secure password hashing with bcryptjs
-- Protected API routes with authentication
-- Email validation and sanitization
-- Project access control and permissions
-
-### 🔄 Future Enhancements
-- Drag-and-drop task reordering
-- Advanced task filtering and search
-- Task comments and activity history
-- Task attachments support
-- Push notifications system
-- Email notifications for task assignments
-- Advanced analytics and reporting
-- Dark mode theme
-- Task priority levels
-- Recurring tasks
-- Task time tracking
-- Integration with external services
-- Mobile app (React Native)
-- Task webhooks
 
 ## 📝 License
 
